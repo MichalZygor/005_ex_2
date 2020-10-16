@@ -13,12 +13,12 @@ public class Room {
     }
 
     public boolean oneDegreeDown() {
-        if (isAirConditioner()) {
-            setAmbientTemperatureC(getAmbientTemperatureC() - 1);
-            if (getAmbientTemperatureC() > getTemperatureMinLevel()) {
+        if (isAirConditioner) {
+            ambientTemperatureC --;
+            if (ambientTemperatureC > temperatureMinLevel) {
                 return true;
             } else{
-                setAmbientTemperatureC(getTemperatureMinLevel());
+                ambientTemperatureC = temperatureMinLevel;
                 return false;
             }
         } else {
@@ -26,7 +26,16 @@ public class Room {
         }
     }
 
-    public double volume(){
+//    public boolean oneDegreeDown() {
+//        if (isAirConditioner && ambientTemperatureC > temperatureMinLevel) {
+//            ambientTemperatureC--;
+//            return false;
+//        } else {
+//            return false;
+//        }
+//    }
+
+    public double volume() {
         return getHeight() * getSurfaceArea();
     }
 
